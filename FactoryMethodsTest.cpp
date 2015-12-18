@@ -5,38 +5,20 @@
 // COMPANY IS PROHIBITED.
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "ServiceClass.h"
-#include "HelperClassA.h"
-#include <cstddef>
+#include "FactoryMethods.h"
+#include <gtest/gtest.h>
+#include <gmock/gmock-matchers.h>
 
-namespace
+using namespace testing;
+
+///////////////////////////////////////////////////////////////////////////////
+TEST(FactoryMethodsTest, CanGetServiceInstance)
 {
-   ServiceClassInterface* globalServiceClass;
-   HelperClassAInterface* globalHelperA;
+   ServiceClassInterface* instance = FactoryMethods::GetServiceInstance();
+   EXPECT_THAT(instance, NotNull());
+   FactoryMethods::DestroyServiceInstance();
 }
 
-extern "C"
-{
-   ServiceClassInterface* ServiceClassEntryPoint(int argc, char** argv)
-   {
-      globalHelperA = new HelperClassA();
-      return globalServiceClass = new ServiceClass(*globalHelperA);
-   }
-
-   void ServiceClassExitPoint(ServiceClassInterface* /*serviceClass*/)
-   {
-      delete globalServiceClass;
-      globalServiceClass = NULL;
-
-      delete globalHelperA;
-      globalHelperA = NULL;
-   }
-
-   ServiceClassInterface* GetServiceInstance()
-   {
-      return globalServiceClass;
-   }
-}
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright (c) Deere & Company as an unpublished work
 // THIS SOFTWARE AND/OR MATERIAL IS THE PROPERTY OF DEERE & COMPANY.  ALL USE,
