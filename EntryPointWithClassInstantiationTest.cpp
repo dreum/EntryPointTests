@@ -5,7 +5,7 @@
 // COMPANY IS PROHIBITED.
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "ServiceClassInterface.h"
+#include "ServiceLib/ServiceClassInterface.h"
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
 

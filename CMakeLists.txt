@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 2.8)
 # Download and unpack gtest at configure time
 set(URL_TO_USE https://github.com/google/googletest/archive/master.zip)
 if(USE_LOCAL_GTEST)
@@ -22,7 +23,9 @@ target_include_directories(gtest INTERFACE
   "${CMAKE_BINARY_DIR}/gtest-src/googlemock/include")
 
 project(entryPointTests)
-cmake_minimum_required(VERSION 2.8)
 aux_source_directory(. SRC_LIST)
+
+add_subdirectory(ServiceLib)
+
 add_executable(${PROJECT_NAME} ${SRC_LIST})
-target_link_libraries(${PROJECT_NAME}  gtest gmock)
+target_link_libraries(${PROJECT_NAME}  gtest gmock ServiceLib)

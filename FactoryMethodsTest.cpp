@@ -5,7 +5,7 @@
 // COMPANY IS PROHIBITED.
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "FactoryMethods.h"
+#include "ServiceLib/FactoryMethods.h"
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
 
