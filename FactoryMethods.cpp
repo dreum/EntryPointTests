@@ -18,18 +18,24 @@ namespace
 
 ServiceClassInterface* FactoryMethods::GetServiceInstance()
 {
-   globalHelperA = new HelperClassA();
-   globalServiceInstance = new ServiceClass(*globalHelperA);
+   if (NULL == globalServiceInstance) //NOT THREAD SAFE!!
+   {
+      globalServiceInstance = new ServiceClass(new HelperClassA());
+   }
    return globalServiceInstance;
 }
 
+// C++11 so much easier
+//static ServiceClassInterface* FactoryMethods::GetServiceInstance()
+//{
+//   static ServiceClass instance;
+//   return &instance;
+//}
+
 void FactoryMethods::DestroyServiceInstance()
 {
-   delete globalServiceInstance;
+   delete globalServiceInstance; //NOT THREAD SAFE!!
    globalServiceInstance = NULL;
-
-   delete globalHelperA;
-   globalHelperA = NULL;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

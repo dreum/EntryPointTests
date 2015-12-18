@@ -7,8 +7,9 @@
 
 #include "ServiceClass.h"
 #include "HelperClassAInterface.h"
+#include <cstddef>
 
-ServiceClass::ServiceClass(HelperClassAInterface& helperA)
+ServiceClass::ServiceClass(HelperClassAInterface* helperA)
    : HelperA(helperA)
 {
 
@@ -16,6 +17,8 @@ ServiceClass::ServiceClass(HelperClassAInterface& helperA)
 
 ServiceClass::~ServiceClass()
 {
+   delete HelperA; //todo: replace with a scoped pointer
+   HelperA = NULL;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

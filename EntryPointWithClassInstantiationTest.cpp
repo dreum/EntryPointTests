@@ -9,14 +9,17 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
 
-extern "C" ServiceClassInterface* ServiceClassEntryPoint(int, char**);
-extern "C" void ServiceClassExitPoint(ServiceClassInterface*);
-extern "C" ServiceClassInterface* GetServiceInstance();
+extern "C"
+{
+   ServiceClassInterface* ServiceClassEntryPoint(int, char**);
+   void ServiceClassExitPoint(ServiceClassInterface*);
+   ServiceClassInterface* GetServiceInstance();
+}
 
 using namespace testing;
 
 ///////////////////////////////////////////////////////////////////////////////
-TEST(EntryPointWithClassInstantiationTest, FailingTest)
+TEST(EntryPointWithClassInstantiationTest, CanGetServiceInstance)
 {
    char** emptyArgs;
    ServiceClassEntryPoint(0, emptyArgs);

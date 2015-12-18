@@ -12,24 +12,19 @@
 namespace
 {
    ServiceClassInterface* globalServiceClass;
-   HelperClassAInterface* globalHelperA;
 }
 
 extern "C"
 {
    ServiceClassInterface* ServiceClassEntryPoint(int argc, char** argv)
    {
-      globalHelperA = new HelperClassA();
-      return globalServiceClass = new ServiceClass(*globalHelperA);
+      return globalServiceClass = new ServiceClass(new HelperClassA());
    }
 
    void ServiceClassExitPoint(ServiceClassInterface* /*serviceClass*/)
    {
       delete globalServiceClass;
       globalServiceClass = NULL;
-
-      delete globalHelperA;
-      globalHelperA = NULL;
    }
 
    ServiceClassInterface* GetServiceInstance()

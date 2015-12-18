@@ -14,11 +14,11 @@ class HelperClassAInterface;
 class ServiceClass : public ServiceClassInterface
 {
 public:
-   ServiceClass(HelperClassAInterface& helperA);
+   ServiceClass(HelperClassAInterface* helperA);
    virtual ~ServiceClass();
 
 private:
-   HelperClassAInterface& HelperA;
+   HelperClassAInterface* HelperA;
    // Not Implemented
    ServiceClass(const ServiceClass& rhs);
    ServiceClass& operator=(const ServiceClass& rhs);
