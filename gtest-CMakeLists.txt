@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 2.8)
+project(gtest-download)
+ 
+include(ExternalProject)
+
+message(STATUS "download gtest: " ${DOWNLOAD_GTEST})
+message(STATUS "URL: " ${URL_TO_USE})
+ExternalProject_Add(googletest
+    URL ${URL_TO_USE}
+    SOURCE_DIR "${CMAKE_BINARY_DIR}/gtest-src"
+    BINARY_DIR "${CMAKE_BINARY_DIR}/gtest-build"
+    CONFIGURE_COMMAND ""
+    BUILD_COMMAND     ""
+    INSTALL_COMMAND   ""
+    TEST_COMMAND      ""
+)
