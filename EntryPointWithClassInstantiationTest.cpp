@@ -25,6 +25,11 @@ TEST(EntryPointWithClassInstantiationTest, FailingTest)
    ServiceClassExitPoint(instance);
 }
 
+// Pros: Good for an integration test. Stands up all the real objects
+// Cons: No possibility for injection.
+//	Mocking external services isn't possible through injections
+//		could use a link seam
+
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright (c) Deere & Company as an unpublished work
 // THIS SOFTWARE AND/OR MATERIAL IS THE PROPERTY OF DEERE & COMPANY.  ALL USE,
