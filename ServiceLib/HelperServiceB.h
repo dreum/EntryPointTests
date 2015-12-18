@@ -7,7 +7,7 @@
 #ifndef HELPERSERVICEB_H
 #define HELPERSERVICEB_H
 
-#include "HelperServiceBInterface.h"
+#include "ServiceLib/HelperServiceBInterface.h"
 
 class HelperServiceB : public HelperServiceBInterface
 {

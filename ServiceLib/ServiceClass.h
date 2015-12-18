@@ -7,7 +7,7 @@
 #ifndef SERVICECLASS_H
 #define SERVICECLASS_H
 
-#include "ServiceClassInterface.h"
+#include "ServiceLib/ServiceClassInterface.h"
 
 class HelperClassAInterface;
 class HelperServiceBInterface;

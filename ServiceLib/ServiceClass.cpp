@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "ServiceClass.h"
-#include "HelperClassAInterface.h"
+#include "ServiceLib/HelperClassAInterface.h"
 #include <cstddef>
 
 ServiceClass::ServiceClass(HelperClassAInterface* helperA, HelperServiceBInterface& serviceB)
