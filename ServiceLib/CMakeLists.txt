@@ -19,4 +19,5 @@ add_library(ServiceLib SHARED
     HelperServiceB.h
     ServiceClass.cpp
     ServiceClass.h
+    ${PUBLIC_INCLUDES}
 )

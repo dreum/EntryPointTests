@@ -22,8 +22,8 @@ target_include_directories(gtest INTERFACE
   "${CMAKE_BINARY_DIR}/gtest-src/googletest/include"
   "${CMAKE_BINARY_DIR}/gtest-src/googlemock/include")
 
-include_directories(public)
 
+include_directories(public)
 project(entryPointTests)
 
 aux_source_directory(. SRC_LIST)
