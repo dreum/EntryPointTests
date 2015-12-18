@@ -23,9 +23,15 @@ target_include_directories(gtest INTERFACE
   "${CMAKE_BINARY_DIR}/gtest-src/googlemock/include")
 
 project(entryPointTests)
+
 aux_source_directory(. SRC_LIST)
 
 add_subdirectory(ServiceLib)
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
+# run gtest executable
+add_custom_target(runGtest
+    ALL
+    COMMAND ${PROJECT_NAME} --output-on-failure
+)
 target_link_libraries(${PROJECT_NAME}  gtest gmock ServiceLib)
