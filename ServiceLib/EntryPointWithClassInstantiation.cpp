@@ -7,24 +7,30 @@
 
 #include "ServiceClass.h"
 #include "HelperClassA.h"
+#include "HelperServiceB.h"
 #include <cstddef>
 
 namespace
 {
    ServiceClassInterface* globalServiceClass;
+   HelperServiceBInterface* globalHelperServiceB;
 }
 
 extern "C"
 {
    ServiceClassInterface* ServiceClassEntryPoint(int argc, char** argv)
    {
-      return globalServiceClass = new ServiceClass(new HelperClassA());
+      globalHelperServiceB = new HelperServiceB();
+      return globalServiceClass = new ServiceClass(new HelperClassA(), *globalHelperServiceB);
    }
 
    void ServiceClassExitPoint(ServiceClassInterface* /*serviceClass*/)
    {
       delete globalServiceClass;
       globalServiceClass = NULL;
+
+      delete globalHelperServiceB;
+      globalHelperServiceB = NULL;
    }
 
    ServiceClassInterface* GetServiceInstance()

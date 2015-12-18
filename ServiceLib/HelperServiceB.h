@@ -4,29 +4,24 @@
 // DISCLOSURE, AND/OR REPRODUCTION NOT SPECIFICALLY AUTHORIZED BY DEERE &
 // COMPANY IS PROHIBITED.
 ///////////////////////////////////////////////////////////////////////////////
-#ifndef SERVICECLASS_H
-#define SERVICECLASS_H
+#ifndef HELPERSERVICEB_H
+#define HELPERSERVICEB_H
 
-#include "ServiceClassInterface.h"
+#include "HelperServiceBInterface.h"
 
-class HelperClassAInterface;
-class HelperServiceBInterface;
-
-class ServiceClass : public ServiceClassInterface
+class HelperServiceB : public HelperServiceBInterface
 {
 public:
-   ServiceClass(HelperClassAInterface* helperA, HelperServiceBInterface& serviceB);
-   virtual ~ServiceClass();
+   HelperServiceB();
+   virtual ~HelperServiceB();
 
 private:
-   HelperClassAInterface* HelperA;
-   HelperServiceBInterface& ServiceB;
    // Not Implemented
-   ServiceClass(const ServiceClass& rhs);
-   ServiceClass& operator=(const ServiceClass& rhs);
+   HelperServiceB(const HelperServiceB& rhs);
+   HelperServiceB& operator=(const HelperServiceB& rhs);
 };
 
-#endif // SERVICECLASS_H
+#endif // HELPERSERVICEB_H
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright (c) Deere & Company as an unpublished work
 // THIS SOFTWARE AND/OR MATERIAL IS THE PROPERTY OF DEERE & COMPANY.  ALL USE,

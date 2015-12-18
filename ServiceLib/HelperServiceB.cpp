@@ -5,40 +5,16 @@
 // COMPANY IS PROHIBITED.
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "FactoryMethods.h"
-#include "ServiceClass.h"
-#include "HelperClassA.h"
 #include "HelperServiceB.h"
-#include <cstddef>
 
-namespace
+///////////////////////////////////////////////////////////////////////////////
+HelperServiceB::HelperServiceB()
 {
-   ServiceClassInterface* globalServiceClass;
-   HelperServiceBInterface* globalHelperServiceB;
 }
 
-
-ServiceClassInterface* FactoryMethods::GetServiceInstance()
+///////////////////////////////////////////////////////////////////////////////
+HelperServiceB::~HelperServiceB()
 {
-   if (NULL == globalServiceClass)
-   {
-      globalHelperServiceB = new HelperServiceB();
-      globalServiceClass = new ServiceClass(new HelperClassA(), *globalHelperServiceB);
-   }
-   return globalServiceClass;
-}
-
-// C++11 so much easier
-//static ServiceClassInterface* FactoryMethods::GetServiceInstance()
-//{
-//   static ServiceClass instance;
-//   return &instance;
-//}
-
-void FactoryMethods::DestroyServiceInstance()
-{
-   delete globalServiceClass; //NOT THREAD SAFE!!
-   globalServiceClass = NULL;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

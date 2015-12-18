@@ -9,8 +9,9 @@
 #include "HelperClassAInterface.h"
 #include <cstddef>
 
-ServiceClass::ServiceClass(HelperClassAInterface* helperA)
+ServiceClass::ServiceClass(HelperClassAInterface* helperA, HelperServiceBInterface& serviceB)
    : HelperA(helperA)
+   , ServiceB(serviceB)
 {
 
 }
