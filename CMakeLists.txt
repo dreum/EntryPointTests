@@ -23,6 +23,8 @@ target_include_directories(gtest INTERFACE
   "${CMAKE_BINARY_DIR}/gtest-src/googlemock/include")
 
 
+include("${CMAKE_SOURCE_DIR}/ProjectMacros.cmake")
+
 include_directories(public)
 project(entryPointTests)
 
