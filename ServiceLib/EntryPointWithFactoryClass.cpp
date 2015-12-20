@@ -10,7 +10,7 @@
 
 namespace
 {
-   ServiceFactory* factory;
+   ServiceFactory* factory; // not needed with a dependency manager
 }
 
 extern "C"
@@ -19,20 +19,21 @@ extern "C"
    HelperServiceBInterface* GetHelperServiceB();
    void HelperServiceBExitPoint(HelperServiceBInterface*);
 
-   ServiceClassInterface* ServiceClassEntryPointWithFactoryClass(int argc, char** argv)
+   ServiceFactory* ServiceClassEntryPointWithFactoryClass(int argc, char** argv)
    {
       HelperServiceBEntryPoint(0, NULL); // not needed with a dependency manager
-      factory = new ServiceFactory(*GetHelperServiceB());
-      return factory->GetServiceInstance();
+      return factory = new ServiceFactory(*GetHelperServiceB());
    }
 
-   void ServiceClassExitPointWithFactoryClass(ServiceClassInterface* /*serviceClass*/)
+   void ServiceClassExitPointWithFactoryClass(ServiceFactory* /*factory*/)
    {
       delete factory;
+      factory = NULL;
+
       HelperServiceBExitPoint(NULL); // not needed with a dependency manager
    }
 
-   ServiceClassInterface* GetServiceInstanceWithFactoryClass()
+   ServiceClassInterface* GetServiceInstanceWithFactoryClass(ServiceFactory* /*factory*/)
    {
       return factory->GetServiceInstance();
    }

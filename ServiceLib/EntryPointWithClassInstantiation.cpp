@@ -11,7 +11,7 @@
 
 namespace
 {
-   ServiceClassInterface* globalServiceClass = NULL;
+   ServiceClassInterface* globalServiceClass = NULL; // not needed with a dependency manager
 }
 
 extern "C"
@@ -22,7 +22,7 @@ extern "C"
 
    ServiceClassInterface* ServiceClassEntryPoint(int argc, char** argv)
    {
-      HelperServiceBEntryPoint(0, NULL);
+      HelperServiceBEntryPoint(0, NULL); // not needed with a dependency manager
       return globalServiceClass = new ServiceClass(new HelperClassA(), *GetHelperServiceB());
    }
 
@@ -31,7 +31,7 @@ extern "C"
       delete globalServiceClass;
       globalServiceClass = NULL;
 
-      HelperServiceBExitPoint(NULL);
+      HelperServiceBExitPoint(NULL); // not needed with a dependency manager
    }
 
    ServiceClassInterface* GetServiceInstance()
