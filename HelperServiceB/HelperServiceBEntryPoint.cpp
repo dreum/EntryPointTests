@@ -10,7 +10,7 @@
 
 namespace
 {
-   HelperServiceBInterface* globalHelperServiceB;
+   HelperServiceBInterface* globalHelperServiceB = NULL;
 }
 
 extern "C"

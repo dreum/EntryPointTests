@@ -11,7 +11,7 @@
 
 namespace
 {
-   ServiceClassInterface* globalServiceClass;
+   ServiceClassInterface* globalServiceClass = NULL;
 }
 
 extern "C"

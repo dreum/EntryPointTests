@@ -13,10 +13,8 @@
 
 namespace
 {
-   ServiceClassInterface* globalServiceClass;
+   ServiceClassInterface* globalServiceClass = NULL; //<-- requires global variable
 }
-
-
 
 ServiceClassInterface*FactoryMethods::CreateServiceInstance(HelperServiceBInterface& helperServiceB)
 {

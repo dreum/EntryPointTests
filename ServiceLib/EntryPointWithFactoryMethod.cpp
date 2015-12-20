@@ -16,7 +16,7 @@ extern "C"
 
    ServiceClassInterface* ServiceClassEntryPointWithFactoryMethod(int argc, char** argv)
    {
-      HelperServiceBEntryPoint(0, NULL);
+      HelperServiceBEntryPoint(0, NULL); // not needed with a dependency manager
       return FactoryMethods::CreateServiceInstance(*GetHelperServiceB()); // return feature
    }
 
@@ -32,6 +32,7 @@ extern "C"
    }
 }
 
+// Pros: very clean (at least with a dependency manager)
 
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright (c) Deere & Company as an unpublished work

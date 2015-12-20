@@ -30,8 +30,9 @@ TEST(EntryPointWithClassInstantiationTest, CanGetServiceInstance)
 
 // Pros: Good for an integration test. Stands up all the real objects
 // Cons: No possibility for injection.
-//	Mocking external services isn't possible through injections
-//		could use a link seam
+//    Mocking external services isn't possible through injections
+//       could use a link seam
+//    Extra setup for extern C functions
 
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright (c) Deere & Company as an unpublished work
