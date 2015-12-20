@@ -24,7 +24,9 @@ TEST(EntryPointWithClassInstantiationTest, CanGetServiceInstance)
    char** emptyArgs;
    ServiceClassEntryPoint(0, emptyArgs);
    ServiceClassInterface* instance = GetServiceInstance();
+   ServiceClassInterface* instance2 = GetServiceInstance();
    EXPECT_THAT(instance, NotNull());
+   EXPECT_THAT(instance, Eq(instance2));
    ServiceClassExitPoint(instance);
 }
 

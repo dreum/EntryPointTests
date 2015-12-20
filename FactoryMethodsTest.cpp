@@ -26,7 +26,7 @@ TEST(FactoryMethodsTest, CanGetServiceInstance)
 }
 
 // Pros: Good for an integration test. Stands up all the real objects except for external services
-//    Much cleaner than an entrypoint test
+//    Cleaner than an entrypoint test
 // Cons: mocking internal objects require a link seem (could just have a unit test)
 //    Can mock service objects
 

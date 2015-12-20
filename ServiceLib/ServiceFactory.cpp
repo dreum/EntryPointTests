@@ -21,7 +21,7 @@ ServiceFactory::ServiceFactory(HelperServiceBInterface& helperServiceB)
 ///////////////////////////////////////////////////////////////////////////////
 ServiceFactory::~ServiceFactory()
 {
-   delete Service;
+   delete Service; //todo: replace with a scoped pointer
    Service = NULL;
 }
 
