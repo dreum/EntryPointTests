@@ -1,0 +1,3 @@
+set(LIB_NAME HelperServiceB)
+
+ADD_LIBRARY_SUBFOLDER(${LIB_NAME})

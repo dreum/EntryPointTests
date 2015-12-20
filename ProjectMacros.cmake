@@ -6,7 +6,7 @@ macro(ADD_LIBRARY_SUBFOLDER LIB_NAME)
         file(GLOB CPPS *.cpp)
         file(GLOB HEADERS *.h)
 
-        add_library(ServiceLib SHARED
+        add_library(${LIB_NAME} SHARED
             ${CPPS}
             ${HEADERS}
             ${PUBLIC_INCLUDES}

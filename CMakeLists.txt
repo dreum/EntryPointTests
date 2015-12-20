@@ -31,6 +31,7 @@ project(entryPointTests)
 aux_source_directory(. SRC_LIST)
 
 add_subdirectory(ServiceLib)
+add_subdirectory(HelperServiceB)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 # run gtest executable
 add_custom_target(runGtest
