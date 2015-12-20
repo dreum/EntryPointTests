@@ -14,6 +14,8 @@
 ServiceFactory::ServiceFactory(HelperServiceBInterface& helperServiceB)
    : Service(new ServiceClass(new HelperClassA(), helperServiceB))
 {
+   // for full encapsulation make ServiceFactory a friend class inside the service class
+   // then make the ServiceClass constructor private
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -27,6 +29,8 @@ ServiceClassInterface* ServiceFactory::GetServiceInstance()
 {
    return Service;
 }
+
+// Pros: Differentiate between instantiation and getting
 
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright (c) Deere & Company as an unpublished work

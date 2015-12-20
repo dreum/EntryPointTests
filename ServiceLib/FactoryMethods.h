@@ -9,6 +9,7 @@
 
 class ServiceClassInterface;
 class HelperServiceBInterface;
+
 namespace FactoryMethods
 {
    ServiceClassInterface* CreateServiceInstance(HelperServiceBInterface& helperServiceB);
